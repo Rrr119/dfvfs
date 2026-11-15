@@ -68,6 +68,11 @@ except ImportError:
     pass
 
 try:
+    from dfvfs.resolver_helpers import luks2_resolver_helper
+except ImportError:
+    pass
+
+try:
     from dfvfs.resolver_helpers import lvm_resolver_helper
 except ImportError:
     pass

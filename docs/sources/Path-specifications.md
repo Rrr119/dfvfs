@@ -39,6 +39,7 @@ TYPE_INDICATOR_EWF | The EWF storage media image type
 TYPE_INDICATOR_EXT | The Extended file system (ext) type
 TYPE_INDICATOR_FAKE | The fake file system type
 TYPE_INDICATOR_GZIP | The gzip compressed file type
+TYPE_INDICATOR_LUKS2 | The LUKS version 2 drive encryption type
 TYPE_INDICATOR_LUKSDE | The LUKS drive encryption volume system type
 TYPE_INDICATOR_LVM | The Logical Volume Manager (LVM) volume system type
 TYPE_INDICATOR_MOUNT | Type to represent a mount point
@@ -222,6 +223,25 @@ within a LUKS encrypted volume.
 --- | ---
 password | The password to unlock the FileVault volume
 parent | The parent path specification
+
+### The LUKS2 volume type
+
+The LUKS2 type (TYPE_INDICATOR_LUKS2) is a type that addresses the decrypted
+data stream of a LUKS version 2 encrypted volume. A file system or volume system
+path specification can use the LUKS2 path specification as its parent.
+
+**Attribute name** | **Description**
+--- | ---
+keyfile | The path of the key file to unlock the LUKS2 volume
+password | The password to unlock the LUKS2 volume
+parent | The parent path specification
+
+The LUKS2 back-end supports the `pbkdf2`, `argon2i` and `argon2id` key
+derivation functions and AES-CBC and AES-XTS data encryption. The `plain`,
+`plain64` and ESSIV initial vector modes are supported.
+
+**Note that it is recommended to use the credential manager instead of providing
+decryption keys (credentials) in a path specification.**
 
 ### The LVM volume system type
 

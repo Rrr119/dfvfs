@@ -156,6 +156,14 @@ dfvfs.resolver\_helpers.luksde\_resolver\_helper module
    :show-inheritance:
    :undoc-members:
 
+dfvfs.resolver\_helpers.luks2\_resolver\_helper module
+------------------------------------------------------
+
+.. automodule:: dfvfs.resolver_helpers.luks2_resolver_helper
+   :members:
+   :show-inheritance:
+   :undoc-members:
+
 dfvfs.resolver\_helpers.lvm\_resolver\_helper module
 ----------------------------------------------------
 

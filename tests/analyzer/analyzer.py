@@ -409,6 +409,17 @@ class AnalyzerTest(shared_test_lib.BaseTestCase):
         type_indicators = analyzer.Analyzer.GetVolumeSystemTypeIndicators(path_spec)
         self.assertEqual(type_indicators, expected_type_indicators)
 
+    def testGetVolumeSystemTypeIndicatorsLUKS2(self):
+        """Tests the GetVolumeSystemTypeIndicators function on a LUKS2 volume."""
+        test_file = self._GetTestFilePath(["luks2.raw"])
+        self._SkipIfPathNotExists(test_file)
+
+        path_spec = os_path_spec.OSPathSpec(location=test_file)
+
+        expected_type_indicators = [definitions.TYPE_INDICATOR_LUKS2]
+        type_indicators = analyzer.Analyzer.GetVolumeSystemTypeIndicators(path_spec)
+        self.assertEqual(type_indicators, expected_type_indicators)
+
     def testGetVolumeSystemTypeIndicatorsLVM(self):
         """Tests the GetVolumeSystemTypeIndicators function on a LVM volume."""
         test_file = self._GetTestFilePath(["lvm.raw"])

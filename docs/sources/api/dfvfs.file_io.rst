@@ -164,6 +164,14 @@ dfvfs.file\_io.luksde\_file\_io module
    :show-inheritance:
    :undoc-members:
 
+dfvfs.file\_io.luks2\_file\_io module
+-------------------------------------
+
+.. automodule:: dfvfs.file_io.luks2_file_io
+   :members:
+   :show-inheritance:
+   :undoc-members:
+
 dfvfs.file\_io.lvm\_file\_io module
 -----------------------------------
 

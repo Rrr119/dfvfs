@@ -22,8 +22,8 @@ class LUKSDEAnalyzerHelper(analyzer_helper.AnalyzerHelper):
         """
         format_specification = specification.FormatSpecification(self.type_indicator)
 
-        # LUKSDE signature.
-        format_specification.AddNewSignature(b"LUKS\xba\xbe", offset=0)
+        # LUKS version 1 signature.
+        format_specification.AddNewSignature(b"LUKS\xba\xbe\x00\x01", offset=0)
 
         return format_specification
 

@@ -468,6 +468,22 @@ dfvfs.vfs.luksde\_file\_system module
    :show-inheritance:
    :undoc-members:
 
+dfvfs.vfs.luks2\_file\_entry module
+-----------------------------------
+
+.. automodule:: dfvfs.vfs.luks2_file_entry
+   :members:
+   :show-inheritance:
+   :undoc-members:
+
+dfvfs.vfs.luks2\_file\_system module
+------------------------------------
+
+.. automodule:: dfvfs.vfs.luks2_file_system
+   :members:
+   :show-inheritance:
+   :undoc-members:
+
 dfvfs.vfs.lvm\_directory module
 -------------------------------
 

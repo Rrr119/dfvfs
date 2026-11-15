@@ -19,6 +19,8 @@ classifiers = [
 requires-python = ">=3.10"
 dependencies = [
     "PyYAML >= 3.10",
+    "argon2-cffi >= 21.3.0",
+    "cryptography >= 3.4.0",
     "dfdatetime >= 20260730",
     "dtfabric >= 20230518",
     "libbde-python >= 20220121",

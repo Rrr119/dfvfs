@@ -172,6 +172,14 @@ dfvfs.path.luksde\_path\_spec module
    :show-inheritance:
    :undoc-members:
 
+dfvfs.path.luks2\_path\_spec module
+-----------------------------------
+
+.. automodule:: dfvfs.path.luks2_path_spec
+   :members:
+   :show-inheritance:
+   :undoc-members:
+
 dfvfs.path.lvm\_path\_spec module
 ---------------------------------
 

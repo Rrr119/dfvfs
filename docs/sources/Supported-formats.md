@@ -28,7 +28,10 @@ The information below is based of version 20230503
 * GPT (Requires: [libvsgpt/pyvsgpt](https://github.com/libyal/libvsgpt) or [libtsk](https://github.com/sleuthkit/sleuthkit/)/[pytsk](https://github.com/py4n6/pytsk))
 * LVM (Requires: [libvslvm/pyvslvm](https://github.com/libyal/libvslvm))
   * At the moment only single physical volume LVM support
-* Linux Unified Key Setup (LUKS) (Requires: [libluksde/pyluksde](https://github.com/libyal/libluksde))
+* Linux Unified Key Setup (LUKS) version 1 (Requires: [libluksde/pyluksde](https://github.com/libyal/libluksde))
+* Linux Unified Key Setup (LUKS) version 2 (Requires: [argon2-cffi](https://argon2-cffi.readthedocs.io) and [cryptography](https://cryptography.io))
+  * Supports password and key file credentials
+  * Read-only access to the decrypted volume, which can contain another supported volume system or file system
 * MBR (Requires: [libtsk](https://github.com/sleuthkit/sleuthkit/)/[pytsk](https://github.com/py4n6/pytsk))
 * Volume Shadow Snapshots (VSS) (Requires: [libvshadow/pyvshadow](https://github.com/libyal/libvshadow))
 

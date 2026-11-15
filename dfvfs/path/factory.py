@@ -16,6 +16,7 @@ class Factory:
             "initialization_vector",
             "inode",
             "key",
+            "keyfile",
             "location",
             "mft_attribute",
             "mft_entry",

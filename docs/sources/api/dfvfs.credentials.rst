@@ -60,6 +60,14 @@ dfvfs.credentials.luksde\_credentials module
    :show-inheritance:
    :undoc-members:
 
+dfvfs.credentials.luks2\_credentials module
+-------------------------------------------
+
+.. automodule:: dfvfs.credentials.luks2_credentials
+   :members:
+   :show-inheritance:
+   :undoc-members:
+
 dfvfs.credentials.manager module
 --------------------------------
 

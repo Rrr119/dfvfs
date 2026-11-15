@@ -132,6 +132,14 @@ dfvfs.analyzer.luksde\_analyzer\_helper module
    :show-inheritance:
    :undoc-members:
 
+dfvfs.analyzer.luks2\_analyzer\_helper module
+---------------------------------------------
+
+.. automodule:: dfvfs.analyzer.luks2_analyzer_helper
+   :members:
+   :show-inheritance:
+   :undoc-members:
+
 dfvfs.analyzer.lvm\_analyzer\_helper module
 -------------------------------------------
 

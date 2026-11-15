@@ -553,34 +553,45 @@ sleep 1
 sudo cryptsetup luksClose dfvfs_luks
 
 # Create test image with a LUKS 2 and an EXT2 file system
-IMAGE_SIZE=$(( 4096 * 1024 ))
+IMAGE_SIZE=$(( 16 * 1024 * 1024 ))
 
 IMAGE_FILE="test_data/luks2.raw"
 
 dd if=/dev/zero of="${IMAGE_FILE}" bs=${SECTOR_SIZE} count=$(( IMAGE_SIZE / SECTOR_SIZE )) 2> /dev/null
 
-cryptsetup --batch-mode --cipher aes-cbc-plain --hash sha1 --type luks2 luksFormat "${IMAGE_FILE}" <<EOT
-luksde-TEST
+cryptsetup --batch-mode --cipher aes-xts-plain64 --key-size 512 --sector-size 4096 \
+	--pbkdf pbkdf2 --pbkdf-force-iterations 1000 --luks2-metadata-size 16k \
+	--luks2-keyslots-size 768k --align-payload 1536 --type luks2 \
+	luksFormat "${IMAGE_FILE}" <<EOT
+luks2-TEST
 EOT
 
-# TODO: fix allow for "Requested offset is beyond real size of device"
-# sudo cryptsetup luksOpen "${IMAGE_FILE}" dfvfs_luks <<EOT
-# luksde-TEST
-# EOT
+sudo cryptsetup luksOpen "${IMAGE_FILE}" dfvfs_luks <<EOT
+luks2-TEST
+EOT
 
-# sudo mke2fs -q -t ext2 -L "ext2_test" /dev/mapper/dfvfs_luks
+sudo mke2fs -q -t ext2 -L "ext2_test" /dev/mapper/dfvfs_luks
 
-# sudo mount -o loop,rw /dev/mapper/dfvfs_luks "${MOUNT_POINT}"
+sudo mount -o loop,rw /dev/mapper/dfvfs_luks "${MOUNT_POINT}"
 
-# sudo chown "${USERNAME}" "${MOUNT_POINT}"
+sudo chown "${USERNAME}" "${MOUNT_POINT}"
 
-# create_test_file_entries_with_extended_attributes "${MOUNT_POINT}"
+create_test_file_entries_with_extended_attributes "${MOUNT_POINT}"
 
-# sudo umount "${MOUNT_POINT}"
+sudo umount "${MOUNT_POINT}"
 
-# sleep 1
+sleep 1
 
-# sudo cryptsetup luksClose dfvfs_luks
+sudo cryptsetup luksClose dfvfs_luks
+
+printf "0123456789abcdef0123456789abcdef" > "test_data/luks2.keyfile"
+
+cryptsetup --batch-mode --pbkdf pbkdf2 --pbkdf-force-iterations 1000 \
+	luksAddKey "${IMAGE_FILE}" "test_data/luks2.keyfile" <<EOT
+luks2-TEST
+EOT
+
+IMAGE_SIZE=$(( 4 * 1024 * 1024 ))
 
 # Create test image with a (traditional) HFS file system
 IMAGE_FILE="test_data/hfs.raw"

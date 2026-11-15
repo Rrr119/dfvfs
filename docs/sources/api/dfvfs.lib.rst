@@ -108,6 +108,14 @@ dfvfs.lib.luksde\_helper module
    :show-inheritance:
    :undoc-members:
 
+dfvfs.lib.luks2\_helper module
+------------------------------
+
+.. automodule:: dfvfs.lib.luks2_helper
+   :members:
+   :show-inheritance:
+   :undoc-members:
+
 dfvfs.lib.lvm\_helper module
 ----------------------------
 
